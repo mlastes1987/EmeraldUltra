@@ -214,7 +214,7 @@ RustboroCity_Gym_Text_ExplainRockTomb:
 	.string "rocks, it also lowers SPEED.\p"
 	.string "If you use a TM, it instantly teaches\n"
 	.string "the move to a POKéMON.\p"
-	.string "TMs are now Reusable.\n"
+	.string "TMs are now reusable.\n"
 	.string "So you can reteach\p"
 	.string "moves over and over!$"
 
