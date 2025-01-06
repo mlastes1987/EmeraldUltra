@@ -8,7 +8,7 @@
 
 // Other settings
 #define OW_POISON_DAMAGE                GEN_LATEST // In Gen4, Pokémon no longer faint from Poison in the overworld. In Gen5+, they no longer take damage at all.
-#define OW_DOUBLE_APPROACH_WITH_ONE_MON FALSE      // If enabled, you can be spotted by two trainers at the same time even if you only have one eligible Pokémon in your party.
+#define OW_DOUBLE_APPROACH_WITH_ONE_MON TRUE      // If enabled, you can be spotted by two trainers at the same time even if you only have one eligible Pokémon in your party.
 #define OW_HIDE_REPEAT_MAP_POPUP        FALSE      // If enabled, map popups will not appear if entering a map with the same Map Section Id as the last.
 #define OW_FRLG_WHITEOUT                FALSE      // If enabled, shows an additional whiteout message and post whiteout event script with healing NPC.
 
@@ -55,7 +55,7 @@
                                                   // 16x32, 32x32, 64x64 etc are fine
 #define OW_MON_WANDER_WALK             TRUE       // If true, OW pokemon with MOVEMENT_TYPE_WANDER will walk-in-place in between steps.
 // Follower Pokémon
-#define OW_FOLLOWERS_ENABLED           FALSE      // Enables follower Pokémon, HGSS style. Requires OW_POKEMON_OBJECT_EVENTS. Note that additional scripting may be required for them to be fully supported!
+#define OW_FOLLOWERS_ENABLED           TRUE      // Enables follower Pokémon, HGSS style. Requires OW_POKEMON_OBJECT_EVENTS. Note that additional scripting may be required for them to be fully supported!
 #define OW_FOLLOWERS_BOBBING           TRUE       // If true, follower pokemon will bob up and down during their idle & walking animations
 #define OW_FOLLOWERS_POKEBALLS         TRUE       // Followers will emerge from the pokeball they are stored in, instead of a normal pokeball
 
@@ -103,8 +103,8 @@
 
 // Configuration
 #define OW_POPUP_BW_COLOR          OW_POPUP_BW_COLOR_BLACK  // B2W2 use different colors for their map pop-ups.
-#define OW_POPUP_BW_TIME_MODE      OW_POPUP_BW_TIME_NONE    // Determines what type of time is shown.
-#define OW_POPUP_BW_ALPHA_BLEND    FALSE                    // Enables alpha blending/transparency for the pop-ups. Mainly intended to be used with the black color option.
+#define OW_POPUP_BW_TIME_MODE      OW_POPUP_BW_TIME_12_HR    // Determines what type of time is shown.
+#define OW_POPUP_BW_ALPHA_BLEND    TRUE                    // Enables alpha blending/transparency for the pop-ups. Mainly intended to be used with the black color option.
 
 // Pokémon Center
 #define OW_IGNORE_EGGS_ON_HEAL           GEN_LATEST         // In Gen 4+, the nurse in the Pokémon Center does not heal Eggs on healing machine.
