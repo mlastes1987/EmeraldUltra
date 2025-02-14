@@ -6,6 +6,8 @@ Based on the pokeemerald-expansion from [**rh-hideout**](https://github.com/rh-h
 
 # Features
 
+- **All 382 Pokemon Obtainable** No trading necessary.
+
 - **Reusable TMs**
 
 - **Forgettable HMs** Without a Move Tutor.
@@ -16,7 +18,7 @@ Based on the pokeemerald-expansion from [**rh-hideout**](https://github.com/rh-h
 
 - **Follower Pokemon** Any Pokemon in the first party slot will follow you through the overworld.
 
-- **Trade Evolutions** All Trade Evolutions can evolve by using either a Linking Cable or their specific evolution items like Metal Coat or King's Rock, but can also evolve by trading between FR and LG out of the box.
+- **Trade Evolutions** All Trade Evolutions can evolve by using either a Linking Cable, which is sold on the 2nd Floor of the Lilycove Department store, or their specific evolution items like Metal Coat or King's Rock.
 
 - **Debug Menu** By pressing R+Start you can open a special debug menu made by a few people. [**See here**](/include/config/debug.h) and it includes features like giving you items, pokemon, and other changes to the game.
 
