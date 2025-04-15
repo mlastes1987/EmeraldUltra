@@ -8,13 +8,23 @@ Based on the pokeemerald-expansion from [**rh-hideout**](https://github.com/rh-h
 
 - **All 382 Pokemon Obtainable** No trading necessary.
 
+- **Gen 6 ORAS Dexnav** By setting flags 0x021, 0x022 and 0x023 to True you can use a port of the ORAS Gen 6 Dexnav.
+
+- **Gen 6 Exp. Share and Exp System** Enabling Flag 0x264 to True or adding the EXP Share to your items through the Debug menu will distribute EXP points to your party.
+
+- **Pokerider** From Gen 7 pressing R on locations of the Pokenav will allow you to fly to those locations.  Enabled by setting flag 0x020 to True
+
+- **Changeable nicknames** Can be done through your Pokemon's Summary screen.
+
+- **Changed starters** The new starters are Chimchar, Sobble and Grookey.
+
 - **Reusable TMs**
 
 - **Forgettable HMs** Without a Move Tutor.
 
 - **Startup Money** Startup money has been changed from 3,000 to 35,000 Pokedollars.
 
-- **HGSS Pokedex Plus** Backported from HeartGold SoulSilver, you get to enjoy the features of Pokedex Plus.
+- **HGSS Pokedex Plus** Backported from Gen 5 HeartGold SoulSilver, you get to enjoy the features of Pokedex Plus.
 
 - **Follower Pokemon** Any Pokemon in the first party slot will follow you through the overworld.
 
