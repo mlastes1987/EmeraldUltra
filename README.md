@@ -36,8 +36,6 @@ Based on the pokeemerald-expansion from [**rh-hideout**](https://github.com/rh-h
 
 - **Gen 5 Map Area Popups** All Map Area Popups are switched to Gen 5 and include a 12hr clock displayed at the bottom.
 
-- **Gen 6 Exp. Share** From the beginning, you can add the Exp. Share from the Debug menu to share Experience points with your party.
-
 - **Running Indoors** This makes traversing all of the world much easier and faster, great for speed runs.
 
 - **Fast-Run** During wild battles you can hold B to run.
