@@ -1,53 +1,47 @@
-# About `pokeemerald-expansion`
+# Pokemon Emerald Ultra
 
-![Gif that shows debugging functionality that is unique to pokeemerald-expansion such as rerolling Trainer Id, Cheat Start, PC from Debug Menu, Debug PC Fill, Pokemon Sprite Visualizer, Debug Warp to Map, and Battle Debug Menu](https://github.com/user-attachments/assets/cf9dfbee-4c6b-4bca-8e0a-07f116ef891c) ![Gif that shows overworld functionality that is unique to pokeemerald-expansion such as indoor running, BW2 style map popups, overworld followers, DNA Splicers, Gen 1 style fishing, OW Item descriptions, Quick Run from Battle, Use Last Ball, Wild Double Battles, and Catch from EXP](https://github.com/user-attachments/assets/383af243-0904-4d41-bced-721492fbc48e) ![Gif that shows off a number of modern Pokemon battle mechanics happening in the pokeemerald-expansion engine: 2 vs 1 battles, modern Pokemon, items, moves, abilities, fully customizable opponents and partners, Trainer Slides, and generational gimmicks](https://github.com/user-attachments/assets/50c576bc-415e-4d66-a38f-ad712f3316be)
+![Screenshot](emeraldultra-box-art.jpg)
 
-<!-- If you want to re-record or change these gifs, here are some notes that I used: https://files.catbox.moe/05001g.md -->
+Based on the pokeemerald-expansion from [**rh-hideout**](https://github.com/rh-hideout/pokeemerald-expansion)
 
-**`pokeemerald-expansion`** is a GBA ROM hack base that equips developers with a comprehensive toolkit for creating Pokémon ROM hacks. **`pokeemerald-expansion`** is built on top of [pret's `pokeemerald`](https://github.com/pret/pokeemerald) decompilation project. **It is not a playable Pokémon game on its own.** 
+# Features
 
-# [Features](FEATURES.md)
+- **All 382 Pokemon Obtainable** No trading necessary.
 
-**`pokeemerald-expansion`** offers hundreds of features from various [core series Pokémon games](https://bulbapedia.bulbagarden.net/wiki/Core_series), along with popular quality-of-life enhancements designed to streamline development and improve the player experience. A full list of those featues can be found in [`FEATURES.md`](FEATURES.md).
+- **Gen 6 ORAS Dexnav** By setting flags 0x021, 0x022 and 0x023 to True you can use a port of the ORAS Gen 6 Dexnav.
 
-# [Credits](CREDITS.md)
+- **Gen 6 Exp. Share and Exp System** The EXP Share will be in your PC at the start of the game with your potion.  It toggles on/off to share EXP with your whole party.  Catching mons also earns EXP points.
 
- [![](https://img.shields.io/github/all-contributors/rh-hideout/pokeemerald-expansion/upcoming)](CREDITS.md)
+- **Pokerider** From Gen 7 pressing R on locations of the Pokenav map will allow you to fly to those locations.  Enabled by setting flag 0x020 to True
 
-If you use **`pokeemerald-expansion`**, please credit **RHH (Rom Hacking Hideout)**. Optionally, include the version number for clarity.
+- **Changeable nicknames** Can be done through your Pokemon's Summary screen.
 
-```
-Based off RHH's pokeemerald-expansion 1.12.2 https://github.com/rh-hideout/pokeemerald-expansion/
-```
+- **Changed starters** The new starters are Chimchar, Sobble and Sprigatito.
 
-Please consider [crediting all contributors](CREDITS.md) involved in the project!
+- **Reusable TMs**
 
-# Choosing `pokeemerald` or **`pokeemerald-expansion`**
+- **Forgettable HMs** Without a Move Tutor.
 
-- **`pokeemerald-expansion`** supports multiplayer functionality with other games built on **`pokeemerald-expansion`**. It is not compatible with official Pokémon games.
-- If compatibility with official games is important, use [`pokeemerald`](https://github.com/pret/pokeemerald). Otherwise, we recommend using **`pokeemerald-expansion`**.
-- **`pokeemerald-expansion`** incorporates regular updates from `pokeemerald`, including bug fixes and documentation improvements.
+- **Startup Money** Startup money has been changed from 3,000 to 35,000 Pokedollars.
 
-# [Getting Started](INSTALL.md)
+- **HGSS Pokedex Plus** Backported from Gen 4 HeartGold SoulSilver, you get to enjoy the features of Pokedex Plus.
 
-❗❗ **Important**: Do not use GitHub's "Download Zip" option as it will not include commit history. This is necessary if you want to update or merge other feature branches. 
+- **Follower Pokemon** Any Pokemon in the first party slot will follow you through the overworld.
 
-If you're new to git and GitHub, [Team Aqua's Asset Repo](https://github.com/Pawkkie/Team-Aquas-Asset-Repo/) has a [guide on forking and cloning the repository](https://github.com/Pawkkie/Team-Aquas-Asset-Repo/wiki/The-Basics-of-GitHub). Then you can follow one of the following guides:
+- **Trade Evolutions** All Trade Evolutions can evolve by using either a Linking Cord, which is sold on the 2nd Floor of the Lilycove Department store, or their specific evolution items like Metal Coat or King's Rock.
 
-## 📥 [Installing **`pokeemerald-expansion`**](INSTALL.md)
-## 🏗️ [Building **`pokeemerald-expansion`**](INSTALL.md#Building-pokeemerald-expansion)
-## 🚚 [Migrating from **`pokeemerald`**](INSTALL.md#Migrating-from-pokeemerald)
-## 🚀 [Updating **`pokeemerald-expansion`**](INSTALL.md#Updating-pokeemerald-expansion)
+- **Debug Menu** By pressing R+Start you can open a special debug menu made by a few people. [**See here**](/include/config/debug.h) and it includes features like giving you items, pokemon, and other changes to the game.
 
-# [Documentation](https://rh-hideout.github.io/pokeemerald-expansion/)
+- **Double Battles** All double battles no longer require you to have two pokemon in your party and 25% of the time wild battles will be double.  This also means that you can battle two trainers at once.
 
-For detailed documentation, visit the [pokeemerald-expansion documentation page](https://rh-hideout.github.io/pokeemerald-expansion/).
+- **Gen 5 Map Area Popups** All Map Area Popups are switched to Gen 5 and include a 12hr clock displayed at the bottom.
 
-# [Contributions](CONTRIBUTING.md)
-If you are looking to [report a bug](CONTRIBUTING.md#Bug-Report), [open a pull request](CONTRIBUTING.md#Pull-Requests), or [request a feature](CONTRIBUTING.md#Feature-Request), our [`CONTRIBUTING.md`](CONTRIBUTING.md) has guides for each.
+- **Running Indoors** This makes traversing all of the world much easier and faster, great for speed runs.
 
-# [Community](https://discord.gg/6CzjAG6GZk)
+- **Fast-Run** During wild battles you can press B to quickly select run.
 
-[![](https://dcbadge.limes.pink/api/server/6CzjAG6GZk)](https://discord.gg/6CzjAG6GZk)
+- **Known Issues** Any known or reported issues will be put here.
 
-Our community uses the [Rom Hacking Hideout (RHH) Discord server](https://discord.gg/6CzjAG6GZk) to communicate and organize. Most of our discussions take place there, and we welcome anybody to join us!
+# Thanks/Credits
+
+Thanks to the [**RH-Hideout**](https://github.com/rh-hideout) community, whose help and Emerald Expansion code base made this project possible.
