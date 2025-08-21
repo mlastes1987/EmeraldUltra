@@ -5232,6 +5232,7 @@ BattleScript_FaintAttacker::
 	dofaintanimation BS_ATTACKER
 	printstring STRINGID_ATTACKERFAINTED
 	cleareffectsonfaint BS_ATTACKER
+	waitanimation
 	tryactivatesoulheart
 	tryactivatereceiver BS_ATTACKER
 	trytrainerslidefirstdownmsg BS_ATTACKER
@@ -5246,6 +5247,7 @@ BattleScript_FaintTarget::
 	dofaintanimation BS_TARGET
 	printstring STRINGID_TARGETFAINTED
 	cleareffectsonfaint BS_TARGET
+	waitanimation
 	tryactivatesoulheart
 	tryactivatereceiver BS_TARGET
 	trytrainerslidefirstdownmsg BS_TARGET
@@ -5389,13 +5391,13 @@ BattleScript_PayDayMoneyAndPickUpItems::
 	end2
 
 BattleScript_LocalBattleLost::
-	jumpifbattletype BATTLE_TYPE_INGAME_PARTNER, BattleScript_LocalBattleLostPrintWhiteOut
 	jumpifbattletype BATTLE_TYPE_DOME, BattleScript_CheckDomeDrew
 	jumpifbattletype BATTLE_TYPE_FRONTIER, BattleScript_LocalBattleLostPrintTrainersWinText
 	jumpifbattletype BATTLE_TYPE_TRAINER_HILL, BattleScript_LocalBattleLostPrintTrainersWinText
 	jumpifbattletype BATTLE_TYPE_EREADER_TRAINER, BattleScript_LocalBattleLostEnd
 	jumpifhalfword CMP_EQUAL, gTrainerBattleParameter + 2, TRAINER_SECRET_BASE, BattleScript_LocalBattleLostEnd
 	jumpifnowhiteout BattleScript_LocalBattleLostEnd_
+	jumpifbattletype BATTLE_TYPE_INGAME_PARTNER, BattleScript_LocalBattleLostPrintWhiteOut
 BattleScript_LocalBattleLostPrintWhiteOut::
 	getmoneyreward
 .if B_WHITEOUT_MONEY >= GEN_4
@@ -8980,6 +8982,7 @@ BattleScript_ArenaDoJudgment::
 	waitcry BS_ATTACKER
 	dofaintanimation BS_OPPONENT1
 	cleareffectsonfaint BS_OPPONENT1
+	waitanimation
 	arenaopponentmonlost
 	end2
 
@@ -8994,6 +8997,7 @@ BattleScript_ArenaJudgmentPlayerLoses:
 	waitcry BS_ATTACKER
 	dofaintanimation BS_PLAYER1
 	cleareffectsonfaint BS_PLAYER1
+	waitanimation
 	arenaplayermonlost
 	end2
 
@@ -9008,10 +9012,12 @@ BattleScript_ArenaJudgmentDraw:
 	waitcry BS_ATTACKER
 	dofaintanimation BS_PLAYER1
 	cleareffectsonfaint BS_PLAYER1
+	waitanimation
 	playfaintcry BS_OPPONENT1
 	waitcry BS_ATTACKER
 	dofaintanimation BS_OPPONENT1
 	cleareffectsonfaint BS_OPPONENT1
+	waitanimation
 	arenabothmonlost
 	end2
 
