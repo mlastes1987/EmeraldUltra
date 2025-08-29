@@ -34936,7 +34936,7 @@
         "Move": "MOVE_FURY_SWIPES"
       },
       {
-        "Level": 19,
+        "Level": 17,
         "Move": "MOVE_FLAME_WHEEL"
       },
       {
@@ -35093,6 +35093,10 @@
       {
         "Level": 29,
         "Move": "MOVE_TORMENT"
+      },
+      {
+        "Level": 37,
+        "Move": "MOVE_FLAMETHROWER"
       },
       {
         "Level": 42,
@@ -67456,7 +67460,7 @@
         "Move": "MOVE_TAUNT"
       },
       {
-        "Level": 12,
+        "Level": 10,
         "Move": "MOVE_RAZOR_LEAF"
       },
       {
@@ -67686,11 +67690,15 @@
         "Move": "MOVE_SLAM"
       },
       {
+        "Level": 37,
+        "Move": "MOVE_SEED_BOMB"
+      },
+      {
         "Level": 38,
         "Move": "MOVE_UPROAR"
       },
       {
-        "Level": 46,
+        "Level": 40,
         "Move": "MOVE_WOOD_HAMMER"
       },
       {
@@ -68104,7 +68112,7 @@
         "Move": "MOVE_BIND"
       },
       {
-        "Level": 12,
+        "Level": 10,
         "Move": "MOVE_WATER_PULSE"
       },
       {
@@ -68300,6 +68308,10 @@
       {
         "Level": 30,
         "Move": "MOVE_U_TURN"
+      },
+      {
+        "Level": 37,
+        "Move": "MOVE_SNIPE_SHOT"
       },
       {
         "Level": 38,
@@ -75222,7 +75234,7 @@
         "Move": "MOVE_LEAFAGE"
       },
       {
-        "Level": 7,
+        "Level": 6,
         "Move": "MOVE_BITE"
       },
       {
@@ -75323,7 +75335,7 @@
         "Move": "MOVE_LEAFAGE"
       },
       {
-        "Level": 7,
+        "Level": 6,
         "Move": "MOVE_BITE"
       },
       {
@@ -75445,7 +75457,7 @@
         "Move": "MOVE_TAIL_WHIP"
       },
       {
-        "Level": 7,
+        "Level": 6,
         "Move": "MOVE_BITE"
       },
       {
