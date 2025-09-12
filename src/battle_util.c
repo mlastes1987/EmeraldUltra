@@ -1956,6 +1956,7 @@ static enum MoveCanceller CancellerAsleepOrFrozen(void)
             TryDeactivateSleepClause(GetBattlerSide(gBattlerAttacker), gBattlerPartyIndexes[gBattlerAttacker]);
             gBattleMons[gBattlerAttacker].status1 &= ~STATUS1_SLEEP;
             gBattleMons[gBattlerAttacker].volatiles.nightmare = FALSE;
+            gEffectBattler = gBattlerAttacker;
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WOKE_UP_UPROAR;
             BattleScriptCall(BattleScript_MoveUsedWokeUp);
             return MOVE_STEP_REMOVES_STATUS;
@@ -11460,7 +11461,7 @@ bool32 TrySwitchInEjectPack(enum ItemCaseId caseID)
 
     for (u32 i = 0; i < gBattlersCount; i++)
     {
-        if (gProtectStructs[i].tryEjectPack
+        if (gDisableStructs[i].tryEjectPack
          && GetBattlerHoldEffect(i, TRUE) == HOLD_EFFECT_EJECT_PACK
          && IsBattlerAlive(i)
          && CountUsablePartyMons(i) > 0)
@@ -11478,7 +11479,7 @@ bool32 TrySwitchInEjectPack(enum ItemCaseId caseID)
         SortBattlersBySpeed(battlers, FALSE);
 
     for (u32 i = 0; i < gBattlersCount; i++)
-        gProtectStructs[i].tryEjectPack = FALSE;
+        gDisableStructs[i].tryEjectPack = FALSE;
 
     for (u32 i = 0; i < gBattlersCount; i++)
     {
