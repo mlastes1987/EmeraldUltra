@@ -1370,8 +1370,23 @@ static void AccuracyCheck(bool32 recalcDragonDarts, const u8 *nextInstr, const u
         if (gBattleMons[gBattlerTarget].volatiles.lockOn && gDisableStructs[gBattlerTarget].battlerWithSureHit == gBattlerAttacker)
             gBattlescriptCurrInstr = nextInstr;
         else if (IsSemiInvulnerable(gBattlerTarget, CHECK_ALL))
+        {
+            if (gBattlerTarget != BATTLE_PARTNER(gBattlerAttacker))
+            {
+                gBattleStruct->moveResultFlags[gBattlerTarget] |= MOVE_RESULT_MISSED;
+                gBattleStruct->missStringId[gBattlerTarget] = gBattleCommunication[MISS_TYPE] = B_MSG_AVOIDED_ATK;
+            }
             gBattlescriptCurrInstr = failInstr;
-        else if (!JumpIfMoveAffectedByProtect(gCurrentMove, gBattlerTarget, TRUE, failInstr))
+        }
+        else if (IsBattlerProtected(gBattlerAttacker, gBattlerTarget, gCurrentMove))
+        {
+            gBattleStruct->moveResultFlags[gBattlerTarget] |= MOVE_RESULT_MISSED;
+            gBattleStruct->missStringId[gBattlerTarget] = gBattleCommunication[MISS_TYPE] = B_MSG_PROTECTED;
+            gLastLandedMoves[gBattlerTarget] = 0;
+            gLastHitByType[gBattlerTarget] = 0;
+            gBattlescriptCurrInstr = failInstr;
+        }
+        else
             gBattlescriptCurrInstr = nextInstr;
         if (GetActiveGimmick(gBattlerAttacker) == GIMMICK_DYNAMAX)
         {
@@ -4229,14 +4244,17 @@ static void Cmd_tryfaintmon(void)
     }
     else
     {
-        if (gBattleMons[battler].ability == ABILITY_NEUTRALIZING_GAS
+        if (gDisableStructs[battler].neutralizingGas
          && !(gAbsentBattlerFlags & (1u << battler))
          && !IsBattlerAlive(battler))
         {
-            gBattleMons[battler].ability = ABILITY_NONE;
-            BattleScriptPush(gBattlescriptCurrInstr);
-            gBattlescriptCurrInstr = BattleScript_NeutralizingGasExits;
-            return;
+            gDisableStructs[battler].neutralizingGas = FALSE;
+            if (!IsNeutralizingGasOnField())
+            {
+                BattleScriptPush(gBattlescriptCurrInstr);
+                gBattlescriptCurrInstr = BattleScript_NeutralizingGasExits;
+                return;
+            }
         }
         if (cmd->battler == BS_ATTACKER)
         {
@@ -13409,44 +13427,46 @@ static void Cmd_switchoutabilities(void)
     CMD_ARGS(u8 battler);
 
     u32 battler = GetBattlerForBattleScript(cmd->battler);
-    if (gBattleMons[battler].ability == ABILITY_NEUTRALIZING_GAS)
+    if (gDisableStructs[battler].neutralizingGas)
     {
-        gBattleMons[battler].ability = ABILITY_NONE;
-        BattleScriptPush(gBattlescriptCurrInstr);
-        gBattlescriptCurrInstr = BattleScript_NeutralizingGasExits;
+        gDisableStructs[battler].neutralizingGas = FALSE;
+        if (!IsNeutralizingGasOnField())
+        {
+            BattleScriptPush(gBattlescriptCurrInstr);
+            gBattlescriptCurrInstr = BattleScript_NeutralizingGasExits;
+            return;
+        }
     }
-    else
+
+    switch (GetBattlerAbility(battler))
     {
-        switch (GetBattlerAbility(battler))
-        {
-        case ABILITY_NATURAL_CURE:
-            if (gBattleMons[battler].status1 & STATUS1_SLEEP)
-                TryDeactivateSleepClause(GetBattlerSide(battler), gBattlerPartyIndexes[battler]);
+    case ABILITY_NATURAL_CURE:
+        if (gBattleMons[battler].status1 & STATUS1_SLEEP)
+            TryDeactivateSleepClause(GetBattlerSide(battler), gBattlerPartyIndexes[battler]);
 
-            gBattleMons[battler].status1 = 0;
-            BtlController_EmitSetMonData(battler, B_COMM_TO_CONTROLLER, REQUEST_STATUS_BATTLE,
-                                         1u << gBattleStruct->battlerPartyIndexes[battler],
-                                         sizeof(gBattleMons[battler].status1),
-                                         &gBattleMons[battler].status1);
-            MarkBattlerForControllerExec(battler);
-            break;
-        case ABILITY_REGENERATOR:
-        {
-            u32 regenerate = GetNonDynamaxMaxHP(battler) / 3;
-            regenerate += gBattleMons[battler].hp;
-            if (regenerate > gBattleMons[battler].maxHP)
-                regenerate = gBattleMons[battler].maxHP;
-            BtlController_EmitSetMonData(battler, B_COMM_TO_CONTROLLER, REQUEST_HP_BATTLE,
-                                         1u << gBattleStruct->battlerPartyIndexes[battler],
-                                         sizeof(regenerate),
-                                         &regenerate);
-            MarkBattlerForControllerExec(battler);
-            break;
-        }
-        }
-
-        gBattlescriptCurrInstr = cmd->nextInstr;
+        gBattleMons[battler].status1 = 0;
+        BtlController_EmitSetMonData(battler, B_COMM_TO_CONTROLLER, REQUEST_STATUS_BATTLE,
+                                        1u << gBattleStruct->battlerPartyIndexes[battler],
+                                        sizeof(gBattleMons[battler].status1),
+                                        &gBattleMons[battler].status1);
+        MarkBattlerForControllerExec(battler);
+        break;
+    case ABILITY_REGENERATOR:
+    {
+        u32 regenerate = GetNonDynamaxMaxHP(battler) / 3;
+        regenerate += gBattleMons[battler].hp;
+        if (regenerate > gBattleMons[battler].maxHP)
+            regenerate = gBattleMons[battler].maxHP;
+        BtlController_EmitSetMonData(battler, B_COMM_TO_CONTROLLER, REQUEST_HP_BATTLE,
+                                        1u << gBattleStruct->battlerPartyIndexes[battler],
+                                        sizeof(regenerate),
+                                        &regenerate);
+        MarkBattlerForControllerExec(battler);
+        break;
     }
+    }
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
 static void Cmd_jumpifhasnohp(void)
@@ -16782,15 +16802,27 @@ void BS_TryBoosterEnergy(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
-void BS_JumpIfAbilityCantBeSuppressed(void)
+void BS_JumpIfAbilityCantBeReactivated(void)
 {
     NATIVE_ARGS(u8 battler, const u8 *jumpInstr);
     u32 battler = GetBattlerForBattleScript(cmd->battler);
+    u32 ability = gBattleMons[battler].ability;
 
-    if (gAbilitiesInfo[gBattleMons[battler].ability].cantBeSuppressed)
+    switch (ability)
+    {
+    case ABILITY_IMPOSTER:
+    case ABILITY_NEUTRALIZING_GAS:
+    case ABILITY_AIR_LOCK:
+    case ABILITY_CLOUD_NINE:
         gBattlescriptCurrInstr = cmd->jumpInstr;
-    else
-        gBattlescriptCurrInstr = cmd->nextInstr;
+        break;
+    default:
+        if (gAbilitiesInfo[ability].cantBeSuppressed)
+            gBattlescriptCurrInstr = cmd->jumpInstr;
+        else
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        break;
+    }
 }
 
 void BS_TryActivateAbilityShield(void)
@@ -18230,13 +18262,16 @@ void BS_TryEndNeutralizingGas(void)
     if (gSpecialStatuses[gBattlerTarget].neutralizingGasRemoved)
     {
         gSpecialStatuses[gBattlerTarget].neutralizingGasRemoved = FALSE;
-        BattleScriptPush(cmd->nextInstr);
-        gBattlescriptCurrInstr = BattleScript_NeutralizingGasExits;
+        gDisableStructs[gBattlerTarget].neutralizingGas = FALSE;
+        if (!IsNeutralizingGasOnField())
+        {
+            BattleScriptPush(cmd->nextInstr);
+            gBattlescriptCurrInstr = BattleScript_NeutralizingGasExits;
+            return;
+        }
     }
-    else
-    {
-        gBattlescriptCurrInstr = cmd->nextInstr;
-    }
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
 void BS_GetRototillerTargets(void)
