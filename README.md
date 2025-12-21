@@ -8,11 +8,11 @@ Based on the pokeemerald-expansion from [**rh-hideout**](https://github.com/rh-h
 
 - **All 382 Pokemon Obtainable** No trading necessary.
 
-- **Gen 6 ORAS Dexnav** This is enabled out of the box, allowing you to see what's catchable.
+- **Gen 6 ORAS Dexnav** By setting flags 0x021, 0x022 and 0x023 to True you can use a port of the ORAS Gen 6 Dexnav.
 
 - **Gen 6 Exp. Share and Exp System** The EXP Share will be in your PC at the start of the game with your potion.  It toggles on/off to share EXP with your whole party.  Catching mons also earns EXP points.
 
-- **Pokerider** From Gen 7 pressing R on locations of the Pokenav map will allow you to fly to those locations.  Enabled out of the box.
+- **Pokerider** From Gen 7 pressing R on locations of the Pokenav map will allow you to fly to those locations.  Enabled by setting flag 0x020 to True
 
 - **Changeable nicknames** Can be done through your Pokemon's Summary screen.
 
@@ -30,11 +30,13 @@ Based on the pokeemerald-expansion from [**rh-hideout**](https://github.com/rh-h
 
 - **Trade Evolutions** All Trade Evolutions can evolve by using either a Linking Cord, which is sold on the 2nd Floor of the Lilycove Department store, or their specific evolution items like Metal Coat or King's Rock.
 
+- **Debug Menu** By pressing R+Start you can open a special debug menu made by a few people. [**See here**](/include/config/debug.h) and it includes features like giving you items, pokemon, and other changes to the game.
+
 - **Double Battles** All double battles no longer require you to have two pokemon in your party and 25% of the time wild battles will be double.  This also means that you can battle two trainers at once.
 
 - **Gen 5 Map Area Popups** All Map Area Popups are switched to Gen 5 and include a 12hr clock displayed at the bottom.
 
-- **Running Indoors** This makes traversing all of the overworld much easier and faster, great for speed runs.
+- **Running Indoors** This makes traversing all of the world much easier and faster, great for speed runs.
 
 - **Fast-Run** During wild battles you can press B to quickly select run.
 

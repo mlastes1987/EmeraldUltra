@@ -236,9 +236,6 @@ static const u16 sNewGamePCItems[][2] =
 {
     { ITEM_POTION, 1 },
     { ITEM_EXP_SHARE, 1 },
-    { ITEM_DOWSING_MACHINE, 1 },
-    { ITEM_RARE_CANDY, 999 },
-    { ITEM_MASTER_BALL, 999 },
     { ITEM_NONE, 0 }
 };
 

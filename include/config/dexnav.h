@@ -3,9 +3,6 @@
 
 #define DEXNAV_ENABLED                TRUE  // Whether or not DexNav is enabled. If TRUE, flags/vars below must all be non-zero
 #define USE_DEXNAV_SEARCH_LEVELS      FALSE  /* WARNING: POSSIBLY EXCEEDS SAVEBLOCK SPACE! REQUIRES 1 BYTE PER SPECIES */
-#define FLAG_UNUSED_0x021             TRUE
-#define FLAG_UNUSED_0x022             TRUE
-#define FLAG_UNUSED_0x023             TRUE
 
 // Flag/var defines
 #define DN_FLAG_SEARCHING             FLAG_UNUSED_0x021 // Searching for mon
