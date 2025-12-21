@@ -29,6 +29,7 @@
 // Eg: Replace with FLAG_UNUSED_0x264 so you can use that flag to toggle the feature.
 #define I_EXP_SHARE_FLAG        FLAG_UNUSED_0x264           // If this flag is set, every Pokémon in the party will gain experience, regardless if they participated in the battle or not.
 #define I_EXP_SHARE_ITEM        GEN_6       // In Gen6+, the Exp. Share was changed from a held item to a Key item that toggles the effect described above.
+#define I_EXP_SHARE_FLAG        TRUE
 
 // Repel/Lure config
 // These two settings are both independent and complementary.
@@ -42,6 +43,7 @@
 #define I_ORAS_DOWSING_FLAG         FLAG_UNUSED_0x024           // Replace 0 with an unused flag to enable the Dowsing Machine mechanic from ORAS.
 #define I_ORAS_DOWSING_SOUNDS       TRUE        // If TRUE, the Dowsing Machine will make sounds based on how far away the hidden item is.
 #define I_ORAS_DOWSING_COLOR_PAL    15          // The color within the palette that will change based on proximity to the item.
+#define FLAG_UNUSED_0x024           TRUE
 // Color values for the ORAS dowsing distances/anims
 #define I_ORAS_DOWSING_COLOR_NONE   RGB_GRAY
 #define I_ORAS_DOWSING_COLOR_SLOW   RGB2GBA(56, 120, 255)
