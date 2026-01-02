@@ -561,6 +561,24 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "SonikkuA-DatH",
+      "name": "SonikkuA-DatH",
+      "avatar_url": "https://avatars.githubusercontent.com/u/58025603?v=4",
+      "profile": "https://github.com/SonikkuA-DatH",
+      "contributions": [
+        "design"
+      ]
+    },
+    {
+      "login": "Jaizu",
+      "name": "Jaizu",
+      "avatar_url": "https://avatars.githubusercontent.com/u/18596778?v=4",
+      "profile": "https://jaizu.moe",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
