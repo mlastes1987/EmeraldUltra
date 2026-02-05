@@ -22,7 +22,7 @@
         "Move": "MOVE_LEECH_SEED"
       },
       {
-        "Level": 12,
+        "Level": 10,
         "Move": "MOVE_RAZOR_LEAF"
       },
       {
@@ -367,6 +367,10 @@
         "Move": "MOVE_DRAGON_BREATH"
       },
       {
+        "Level": 14,
+        "Move": "MOVE_METAL_CLAW"
+      },
+      {
         "Level": 17,
         "Move": "MOVE_FIRE_FANG"
       },
@@ -477,6 +481,10 @@
       {
         "Level": 12,
         "Move": "MOVE_DRAGON_BREATH"
+      },
+      {
+        "Level": 14,
+        "Move": "MOVE_METAL_CLAW"
       },
       {
         "Level": 19,
@@ -596,6 +604,10 @@
       {
         "Level": 12,
         "Move": "MOVE_DRAGON_BREATH"
+      },
+      {
+        "Level": 14,
+        "Move": "MOVE_METAL_CLAW"
       },
       {
         "Level": 19,
@@ -5228,14 +5240,36 @@
     "TutorMoves": []
   },
   "KADABRA": {
-    "LevelMoves": [],
+    "LevelMoves": [
+      {
+        "Level": 17,
+        "Move": "MOVE_SHOCK_WAVE"
+      },
+      {
+        "Level": 22,
+        "Move": "MOVE_THUNDER_PUNCH"
+      }
+    ],
     "PreEvoMoves": [],
     "TMMoves": [],
     "EggMoves": [],
     "TutorMoves": []
   },
   "ALAKAZAM": {
-    "LevelMoves": [],
+    "LevelMoves": [
+      {
+        "Level": 16,
+        "Move": "MOVE_SHOCK_WAVE"
+      },
+      {
+        "Level": 18,
+        "Move": "MOVE_THUNDER_PUNCH"
+      },
+      {
+        "Level": 37,
+        "Move": "MOVE_THUNDERBOLT"
+      }
+    ],
     "PreEvoMoves": [],
     "TMMoves": [],
     "EggMoves": [],
@@ -68519,7 +68553,7 @@
         "Move": "MOVE_BIND"
       },
       {
-        "Level": 12,
+        "Level": 10,
         "Move": "MOVE_WATER_PULSE"
       },
       {
@@ -68605,7 +68639,7 @@
         "Move": "MOVE_WATER_GUN"
       },
       {
-        "Level": 12,
+        "Level": 10,
         "Move": "MOVE_WATER_PULSE"
       },
       {
@@ -75652,7 +75686,7 @@
         "Move": "MOVE_HONE_CLAWS"
       },
       {
-        "Level": 13,
+        "Level": 12,
         "Move": "MOVE_MAGICAL_LEAF"
       },
       {
@@ -75753,7 +75787,7 @@
         "Move": "MOVE_HONE_CLAWS"
       },
       {
-        "Level": 13,
+        "Level": 12,
         "Move": "MOVE_MAGICAL_LEAF"
       },
       {
