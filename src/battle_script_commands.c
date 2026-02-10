@@ -1136,6 +1136,19 @@ static inline bool32 IsBattlerUsingBeakBlast(u32 battler)
     return !HasBattlerActedThisTurn(battler);
 }
 
+static inline bool32 IsInstructBannedChargingMove(u32 battler)
+{
+    enum BattleMoveEffects moveEffect;
+
+    if (gChosenActionByBattler[battler] != B_ACTION_USE_MOVE || HasBattlerActedThisTurn(battler))
+        return FALSE;
+
+    moveEffect = GetMoveEffect(gChosenMoveByBattler[battler]);
+    return moveEffect == EFFECT_FOCUS_PUNCH
+        || moveEffect == EFFECT_BEAK_BLAST
+        || moveEffect == EFFECT_SHELL_TRAP;
+}
+
 static void Cmd_attackcanceler(void)
 {
     CMD_ARGS();
@@ -11265,10 +11278,11 @@ static void Cmd_transformdataexecution(void)
 
     gChosenMove = MOVE_UNAVAILABLE;
     gBattlescriptCurrInstr = cmd->nextInstr;
-    if (gBattleMons[gBattlerTarget].volatiles.transformed
-        || DoesSubstituteBlockMove(gBattlerAttacker, gBattlerTarget, gCurrentMove)
-        || gBattleStruct->illusion[gBattlerTarget].state == ILLUSION_ON
-        || IsSemiInvulnerable(gBattlerTarget, EXCLUDE_COMMANDER))
+    if ((GetConfig(B_TRANSFORM_SEMI_INV_FAIL) >= GEN_2 && IsSemiInvulnerable(gBattlerTarget, EXCLUDE_COMMANDER))
+        || (GetConfig(B_TRANSFORM_TARGET_FAIL) >= GEN_2 && gBattleMons[gBattlerTarget].volatiles.transformed)
+        || (GetConfig(B_TRANSFORM_USER_FAIL) >= GEN_5 && gBattleMons[gBattlerAttacker].volatiles.transformed)
+        || (GetConfig(B_TRANSFORM_SUBSTITUTE_FAIL) >= GEN_5 && DoesSubstituteBlockMove(gBattlerAttacker, gBattlerTarget, gCurrentMove))
+        || gBattleStruct->illusion[gBattlerTarget].state == ILLUSION_ON)
     {
         gBattleStruct->moveResultFlags[gBattlerTarget] |= MOVE_RESULT_FAILED;
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TRANSFORM_FAILED;
@@ -12119,13 +12133,17 @@ static void Cmd_presentdamagecalculation(void)
     {
         gBattlescriptCurrInstr = BattleScript_HitFromCritCalc;
     }
+    else if (gBattlerTarget == BATTLE_PARTNER(gBattlerAttacker) && GetBattlerAbility(gBattlerTarget) == ABILITY_TELEPATHY)
+    {
+        gBattlescriptCurrInstr = BattleScript_MoveMissedPause;
+    }
     else if (gBattleMons[gBattlerTarget].maxHP == gBattleMons[gBattlerTarget].hp)
     {
         gBattlescriptCurrInstr = BattleScript_AlreadyAtFullHp;
     }
     else
     {
-        gBattleStruct->moveResultFlags[gBattlerTarget] &= ~MOVE_RESULT_DOESNT_AFFECT_FOE;
+        gBattleStruct->moveResultFlags[gBattlerTarget] &= ~(MOVE_RESULT_MISSED | MOVE_RESULT_DOESNT_AFFECT_FOE);
         gBattlescriptCurrInstr = BattleScript_PresentHealTarget;
     }
 }
@@ -17379,6 +17397,9 @@ void BS_TryInstruct(void)
     u16 move = gLastPrintedMoves[gBattlerTarget];
     if (move == MOVE_NONE || move == MOVE_UNAVAILABLE || MoveHasAdditionalEffectSelf(move, MOVE_EFFECT_RECHARGE)
         || IsMoveInstructBanned(move)
+        || IsInstructBannedChargingMove(gBattlerTarget)
+        || gBattleMons[gBattlerTarget].volatiles.bideTurns != 0
+        || gBattleMons[gBattlerTarget].volatiles.semiInvulnerable == STATE_SKY_DROP
         || gBattleMoveEffects[GetMoveEffect(move)].twoTurnEffect
         || (GetActiveGimmick(gBattlerTarget) == GIMMICK_DYNAMAX)
         || IsZMove(move)
