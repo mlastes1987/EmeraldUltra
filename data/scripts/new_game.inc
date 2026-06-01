@@ -272,6 +272,13 @@ EventScript_ResetAllMapFlags::
 	setflag FLAG_HIDE_EVER_GRANDE_POKEMON_CENTER_1F_SCOTT
 	setflag FLAG_HIDE_SKY_PILLAR_WALLACE
 	setflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL
+	setflag FLAG_UNUSED_0x020
+	setflag FLAG_UNUSED_0x021
+	setflag FLAG_UNUSED_0x022
+	setflag FLAG_UNUSED_0x023
+	setflag FLAG_UNUSED_0x024
+	setvar VAR_UNUSED_0x40F7, 0
+	setvar VAR_UNUSED_0x40F8, 0
 	call EventScript_ResetAllBerries
 	end
 
