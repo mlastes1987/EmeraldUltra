@@ -479,6 +479,10 @@
         "Move": "MOVE_DRAGON_BREATH"
       },
       {
+        "Level": 16,
+        "Move": "MOVE_METAL_CLAW"
+      },
+      {
         "Level": 19,
         "Move": "MOVE_FIRE_FANG"
       },
@@ -5228,14 +5232,28 @@
     "TutorMoves": []
   },
   "KADABRA": {
-    "LevelMoves": [],
+    "LevelMoves": [
+      {
+        "Level": 16,
+        "Move": "MOVE_SHOCK_WAVE"
+      },
+      {
+        "Level": 21,
+        "Move": "MOVE_SPARK"
+      },
+    ],
     "PreEvoMoves": [],
     "TMMoves": [],
     "EggMoves": [],
     "TutorMoves": []
   },
   "ALAKAZAM": {
-    "LevelMoves": [],
+    "LevelMoves": [
+      {
+        "Level": 38,
+        "Move": "MOVE_THUNDERBOLT"
+      }
+    ],
     "PreEvoMoves": [],
     "TMMoves": [],
     "EggMoves": [],
@@ -35071,12 +35089,16 @@
         "Move": "MOVE_LEER"
       },
       {
-        "Level": 7,
+        "Level": 1,
         "Move": "MOVE_EMBER"
       },
       {
         "Level": 9,
         "Move": "MOVE_TAUNT"
+      },
+      {
+        "Level": 14,
+        "Move": "MOVE_DOUBLE_KICK"
       },
       {
         "Level": 15,
@@ -35215,7 +35237,11 @@
         "Move": "MOVE_FURY_SWIPES"
       },
       {
-        "Level": 19,
+        "Level": 17,
+        "Move": "MOVE_MACH_PUNCH"
+      },
+      {
+        "Level": 18,
         "Move": "MOVE_FLAME_WHEEL"
       },
       {
@@ -68511,7 +68537,7 @@
         "Move": "MOVE_GROWL"
       },
       {
-        "Level": 6,
+        "Level": 1,
         "Move": "MOVE_WATER_GUN"
       },
       {
@@ -68519,7 +68545,7 @@
         "Move": "MOVE_BIND"
       },
       {
-        "Level": 12,
+        "Level": 10,
         "Move": "MOVE_WATER_PULSE"
       },
       {
@@ -75652,7 +75678,7 @@
         "Move": "MOVE_HONE_CLAWS"
       },
       {
-        "Level": 13,
+        "Level": 12,
         "Move": "MOVE_MAGICAL_LEAF"
       },
       {
