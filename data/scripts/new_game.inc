@@ -112,6 +112,7 @@ EventScript_ResetAllBerries::
 	setberrytree BERRY_TREE_ROUTE_130_LIECHI, BERRY_ID_LIECHI, BERRY_STAGE_BERRIES
 	return
 
+#if EMERALD
 EventScript_ResetAllMapFlags::
 	setflag FLAG_HIDE_CONTEST_POKE_BALL
 	setflag FLAG_HIDE_ROUTE_111_VICTORIA_WINSTRATE
@@ -276,12 +277,13 @@ EventScript_ResetAllMapFlags::
 	setflag FLAG_UNUSED_0x021
 	setflag FLAG_UNUSED_0x022
 	setflag FLAG_UNUSED_0x023
-	setflag FLAG_UNUSED_0x024
 	setvar VAR_UNUSED_0x40F7, 0
 	setvar VAR_UNUSED_0x40F8, 0
 	call EventScript_ResetAllBerries
 	end
+#endif
 
+#ifndef EMERALD
 EventScript_ResetAllMapFlagsFrlg::
 	setflag FLAG_HIDE_OAK_IN_HIS_LAB
 	setflag FLAG_HIDE_OAK_IN_PALLET_TOWN
@@ -332,5 +334,12 @@ EventScript_ResetAllMapFlagsFrlg::
 	setflag FLAG_HIDE_FAME_CHECKER_KOGA_JOURNAL
 	setflag FLAG_HIDE_FAME_CHECKER_LT_SURGE_JOURNAL
 	setflag FLAG_HIDE_SAFFRON_CITY_POKECENTER_SABRINA_JOURNALS
+	setflag FLAG_0x0AF
+	setflag FLAG_0x0B0
+	setflag FLAG_0x0B1
+	setflag FLAG_0x0B2
+	setvar VAR_0x408C, 0
+	setvar VAR_0x408D, 0
 	setvar VAR_MASSAGE_COOLDOWN_STEP_COUNTER, 500
 	end
+#endif

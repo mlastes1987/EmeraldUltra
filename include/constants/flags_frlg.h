@@ -149,12 +149,12 @@
 #define FLAG_HIDE_SAFFRON_CITY_POKECENTER_SABRINA_JOURNALS 0x0AE
 
 // Unused?
-#define FLAG_0x0AF               0x0AF
-#define FLAG_0x0B0               0x0B0
-#define FLAG_0x0B1               0x0B1
-#define FLAG_0x0B2               0x0B2
-#define FLAG_0x0B3               0x0B3
-#define FLAG_0x0B4               0x0B4
+#define FLAG_0x0AF               0x0AF // Pokerider
+#define FLAG_0x0B0               0x0B0 // Dexnav search for mon
+#define FLAG_0x0B1               0x0B1 // Dexnav show in start menu
+#define FLAG_0x0B2               0x0B2 // Dexnav allow player to find hidden mons
+#define FLAG_0x0B3               0x0B3 // Dowsing Machine
+#define FLAG_0x0B4               0x0B4 // Gen 6 Exp Share
 #define FLAG_0x0B5               0x0B5
 #define FLAG_0x0B6               0x0B6
 #define FLAG_0x0B7               0x0B7
