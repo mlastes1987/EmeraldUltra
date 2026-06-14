@@ -1068,7 +1068,7 @@ PalletTown_ProfessorOaksLab_EventScript_BulbasaurBall::
 	lock
 	faceplayer
 	setvar PLAYER_STARTER_NUM, 0
-	setvar PLAYER_STARTER_SPECIES, SPECIES_BULBASAUR
+	setvar PLAYER_STARTER_SPECIES, SPECIES_ROWLET
 	setvar RIVAL_STARTER_SPECIES, SPECIES_CHARMANDER
 	setvar RIVAL_STARTER_ID, LOCALID_CHARMANDER_BALL
 	goto_if_ge VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 3, PalletTown_ProfessorOaksLab_EventScript_LastPokeBall
@@ -1211,7 +1211,7 @@ PalletTown_ProfessorOaksLab_EventScript_SquirtleBall::
 	lock
 	faceplayer
 	setvar PLAYER_STARTER_NUM, 1
-	setvar PLAYER_STARTER_SPECIES, SPECIES_SQUIRTLE
+	setvar PLAYER_STARTER_SPECIES, SPECIES_TOTODILE
 	setvar RIVAL_STARTER_SPECIES, SPECIES_BULBASAUR
 	setvar RIVAL_STARTER_ID, LOCALID_BULBASAUR_BALL
 	goto_if_ge VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 3, PalletTown_ProfessorOaksLab_EventScript_LastPokeBall
@@ -1224,7 +1224,7 @@ PalletTown_ProfessorOaksLab_EventScript_CharmanderBall::
 	lock
 	faceplayer
 	setvar PLAYER_STARTER_NUM, 2
-	setvar PLAYER_STARTER_SPECIES, SPECIES_CHARMANDER
+	setvar PLAYER_STARTER_SPECIES, SPECIES_SCORBUNNY
 	setvar RIVAL_STARTER_SPECIES, SPECIES_SQUIRTLE
 	setvar RIVAL_STARTER_ID, LOCALID_SQUIRTLE_BALL
 	goto_if_ge VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 3, PalletTown_ProfessorOaksLab_EventScript_LastPokeBall
@@ -1401,22 +1401,22 @@ PalletTown_ProfessorOaksLab_Text_OakHeyDontGoAwayYet::
 	.string "Don't go away yet!$"
 
 PalletTown_ProfessorOaksLab_Text_OakChoosingCharmander::
-	.string "Ah! CHARMANDER is your choice.\n"
+	.string "Ah! SCORBUNNY is your choice.\n"
 	.string "You should raise it patiently.\p"
 	.string "So, {PLAYER}, you're claiming the\n"
-	.string "FIRE POKéMON CHARMANDER?$"
+	.string "FIRE POKéMON SCORBUNNY?$"
 
 PalletTown_ProfessorOaksLab_Text_OakChoosingSquirtle::
-	.string "Hm! SQUIRTLE is your choice.\n"
+	.string "Hm! TOTODILE is your choice.\n"
 	.string "It's one worth raising.\p"
 	.string "So, {PLAYER}, you've decided on the\n"
-	.string "WATER POKéMON SQUIRTLE?$"
+	.string "WATER POKéMON TOTODILE?$"
 
 PalletTown_ProfessorOaksLab_Text_OakChoosingBulbasaur::
-	.string "I see! BULBASAUR is your choice.\n"
+	.string "I see! ROWLET is your choice.\n"
 	.string "It's very easy to raise.\p"
 	.string "So, {PLAYER}, you want to go with\n"
-	.string "the GRASS POKéMON BULBASAUR?$"
+	.string "the GRASS POKéMON ROWLET?$"
 
 PalletTown_ProfessorOaksLab_Text_OakThisMonIsEnergetic::
 	.string "This POKéMON is really quite\n"
