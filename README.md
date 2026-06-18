@@ -1,53 +1,27 @@
-# About `pokeemerald-expansion`
+# Gen 3 Ultra Project
 
-![Gif that shows debugging functionality that is unique to pokeemerald-expansion such as rerolling Trainer ID, Cheat Start, PC from Debug Menu, Debug PC Fill, Pokémon Sprite Visualizer, Debug Warp to Map, and Battle Debug Menu](https://github.com/user-attachments/assets/cf9dfbee-4c6b-4bca-8e0a-07f116ef891c) ![Gif that shows overworld functionality that is unique to pokeemerald-expansion such as indoor running, BW2 style map popups, overworld followers, DNA Splicers, Gen 1 style fishing, OW Item descriptions, Quick Run from Battle, Use Last Ball, Wild Double Battles, and Catch from EXP](https://github.com/user-attachments/assets/383af243-0904-4d41-bced-721492fbc48e) ![Gif that shows off a number of modern Pokémon battle mechanics happening in the pokeemerald-expansion engine: 2 vs 1 battles, modern Pokémon, items, moves, abilities, fully customizable opponents and partners, Trainer Slides, and generational gimmicks](https://github.com/user-attachments/assets/50c576bc-415e-4d66-a38f-ad712f3316be)
+Based on the [pokeemerald-expansion](https://github.com/rh-hideout/pokeemerald-expansion) by rh-hideout and others.
 
-<!-- If you want to re-record or change these gifs, here are some notes that I used: https://files.catbox.moe/05001g.md -->
+Originally this project began as Emerald Ultra, which was more to prove to myself that I could make a QOL rom hack for Emerald through the expansion code base.  Over the past two year period working with this code base I've learned a lot about rom hacking, coding, and many other things and I've just scratched the surface compared to some other devs out here.  The code base has now been configured to also build Fire Red Ultra, a hack based on a port of pokeemerald-expansion features that was configured to build FireRed/LeafGreen from its own code base, and it worked well but there were also issues.  Hopefully now that it has been ported to this code base it will work better and as I'm also the beta tester as well as developer, that will take time.
 
-**`pokeemerald-expansion`** is a GBA ROM hack base that equips developers with a comprehensive toolkit for creating Pokémon ROM hacks. **`pokeemerald-expansion`** is built on top of [pret's `pokeemerald`](https://github.com/pret/pokeemerald) decompilation project. **It is not a playable Pokémon game on its own.**
+# Features Currently Active
 
-# [Features](FEATURES.md)
+- **Reusable TMs/Forgettable HMs:** TMs are now reusable and HMs can be forgotten without a move tutor.
+- **New Game Changes:** Dexnav is enabled, Dowsing Machine, and Gen 6 Exp Share are now available from the PC at the start of the game.  Start up money is 35,000 Pokedollars.
+- **Starter Changes:** For Emerald Ultra, the starters have been changed to Sprigatito, Chimchar and Sobble.  For Fire Red Ultra the starters are Rowlet, Scorbunny and Totodile.
+- **Optional Casual Run Items:** In your PC will be some Master Balls and Rare Candy to make your run easier, completely optional and can stay in your PC for the duration of the game if you wish.
+- **Moveset Changes:** Changes to movesets have been done for the Emerald Ultra starters and the Charmander line for challenge runs.  More changes here to come.
+- **Run Anywhere:** You can run indoors, you can run in the Pokemon Center, you can run anywhere anytime!
+- **Linking Cable:** For trade evolutions, you can purchase the Linking Cable for 1,500 Pokedollars at the Mauville City Mart in Emerald Ultra and Celadon City Department Store 4th Floor in Fire Red Ultra along with other evolution stones.
+- **Reusable Escape Rope:** if you find one in the overworld you won't be able to buy it in the store and eventually I'll scour the maps and remove the random ones scattered throughout the over world, but the Escape Rope is now a reusable Key Item.
+- **Following Pokemon:** Any pokemon in your first party slot will follow you throughout the overworld.
+- **Double Battles:** Wild double battles have a 25% chance of occuring and you can also have double trainer battles if you're spotted by two trainers.  All double battles wild or trainer can happen if you have one pokemon in your party.
+- **Gen 7 Pokerider:** Using the Town Map you can press A over areas you've been to before to Fly to them.  This is available from the beginning.
 
-**`pokeemerald-expansion`** offers hundreds of features from various [core series Pokémon games](https://bulbapedia.bulbagarden.net/wiki/Core_series), along with popular quality-of-life enhancements designed to streamline development and improve the player experience. A full list of those features can be found in [`FEATURES.md`](FEATURES.md).
+# Credits
 
-# [Credits](CREDITS.md)
+- [pret](https://pret.github.io) for their help with coding and other things.
+- [rh-hideout](https://github.com/rh-hideout) and their team for their help with coding and the development of pokeemerald-expansion.
+- [cawtds](https://github.com/cawtds) for their development in porting pokeemerald-expansion features to the pret pokefirered code base.
 
- [![](https://img.shields.io/github/all-contributors/rh-hideout/pokeemerald-expansion/upcoming)](CREDITS.md)
-
-If you use **`pokeemerald-expansion`**, please credit **RHH (Rom Hacking Hideout)**. Optionally, include the version number for clarity.
-
-```
-Based off RHH's pokeemerald-expansion 1.16.1 https://github.com/rh-hideout/pokeemerald-expansion/
-```
-
-Please consider [crediting all contributors](CREDITS.md) involved in the project!
-
-# Choosing `pokeemerald` or **`pokeemerald-expansion`**
-
-- **`pokeemerald-expansion`** supports multiplayer functionality with other games built on **`pokeemerald-expansion`**. It is not compatible with official Pokémon games.
-- If compatibility with official games is important, use [`pokeemerald`](https://github.com/pret/pokeemerald). Otherwise, we recommend using **`pokeemerald-expansion`**.
-- **`pokeemerald-expansion`** incorporates regular updates from `pokeemerald`, including bug fixes and documentation improvements.
-
-# [Getting Started](INSTALL.md)
-
-❗❗ **Important**: Do not use GitHub's "Download Zip" option as it will not include commit history. This is necessary if you want to update or merge other feature branches.
-
-If you're new to git and GitHub, [Team Aqua's Asset Repo](https://github.com/Pawkkie/Team-Aquas-Asset-Repo/) has a [guide to forking and cloning the repository](https://github.com/Pawkkie/Team-Aquas-Asset-Repo/wiki/The-Basics-of-GitHub). Then you can follow one of the following guides:
-
-## 📥 [Installing **`pokeemerald-expansion`**](INSTALL.md)
-## 🏗️ [Building **`pokeemerald-expansion`**](INSTALL.md#Building-pokeemerald-expansion)
-## 🚚 [Migrating from **`pokeemerald`**](INSTALL.md#Migrating-from-pokeemerald)
-## 🚀 [Updating **`pokeemerald-expansion`**](INSTALL.md#Updating-pokeemerald-expansion)
-
-# [Documentation](https://rh-hideout.github.io/pokeemerald-expansion/)
-
-For detailed documentation, visit the [pokeemerald-expansion documentation page](https://rh-hideout.github.io/pokeemerald-expansion/).
-
-# [Contributions](CONTRIBUTING.md)
-If you are looking to [report a bug](CONTRIBUTING.md#Bug-Report), [open a pull request](CONTRIBUTING.md#Pull-Requests), or [request a feature](CONTRIBUTING.md#Feature-Request), our [`CONTRIBUTING.md`](CONTRIBUTING.md) has guides for each.
-
-# [Community](https://discord.gg/6CzjAG6GZk)
-
-[![](https://dcbadge.limes.pink/api/server/6CzjAG6GZk)](https://discord.gg/6CzjAG6GZk)
-
-Our community uses the [ROM Hacking Hideout (RHH) Discord server](https://discord.gg/6CzjAG6GZk) to communicate and organize. Most of our discussions take place there, and we welcome anybody to join us!
+More coming soon...

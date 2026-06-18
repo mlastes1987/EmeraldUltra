@@ -281,9 +281,7 @@ EventScript_ResetAllMapFlags::
 	setvar VAR_UNUSED_0x40F8, 0
 	call EventScript_ResetAllBerries
 	end
-#endif
-
-#ifndef EMERALD
+#else
 EventScript_ResetAllMapFlagsFrlg::
 	setflag FLAG_HIDE_OAK_IN_HIS_LAB
 	setflag FLAG_HIDE_OAK_IN_PALLET_TOWN
