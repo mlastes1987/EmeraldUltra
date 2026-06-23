@@ -2895,13 +2895,17 @@ void SetMoveEffect(enum BattlerId battlerAtk, enum BattlerId effectBattler, enum
         }
         break;
     case MOVE_EFFECT_EERIE_SPELL:
-        if (gLastMoves[effectBattler] != MOVE_NONE && gLastMoves[effectBattler] != 0xFFFF)
+        if (gLastMoves[effectBattler] != MOVE_NONE && gLastMoves[effectBattler] != MOVE_UNAVAILABLE)
         {
             u32 i;
+            enum Move moveToReduce = gLastMoves[effectBattler];
+
+            if (IsMaxMove(moveToReduce))
+                moveToReduce = gBattleStruct->dynamax.baseMoves[effectBattler];
 
             for (i = 0; i < MAX_MON_MOVES; i++)
             {
-                if (gLastMoves[effectBattler] == gBattleMons[effectBattler].moves[i])
+                if (moveToReduce == gBattleMons[effectBattler].moves[i])
                     break;
             }
 
@@ -2912,7 +2916,7 @@ void SetMoveEffect(enum BattlerId battlerAtk, enum BattlerId effectBattler, enum
                 if (gBattleMons[effectBattler].pp[i] < ppToDeduct)
                     ppToDeduct = gBattleMons[effectBattler].pp[i];
 
-                PREPARE_MOVE_BUFFER(gBattleTextBuff1, gLastMoves[effectBattler])
+                PREPARE_MOVE_BUFFER(gBattleTextBuff1, moveToReduce)
                 ConvertIntToDecimalStringN(gBattleTextBuff2, ppToDeduct, STR_CONV_MODE_LEFT_ALIGN, 1);
                 PREPARE_BYTE_NUMBER_BUFFER(gBattleTextBuff2, 1, ppToDeduct)
                 gBattleMons[effectBattler].pp[i] -= ppToDeduct;
@@ -11985,11 +11989,12 @@ void BS_TryRevivalBlessing(void)
 
 void BS_JumpIfCommanderActive(void)
 {
-    NATIVE_ARGS(const u8 *jumpInstr);
+    NATIVE_ARGS(u8 battler, const u8 *jumpInstr);
+    enum BattlerId battler = GetBattlerForBattleScript(cmd->battler);
 
-    if (gBattleStruct->battlerState[gBattlerTarget].commanderSpecies != SPECIES_NONE)
+    if (gBattleStruct->battlerState[battler].commanderSpecies != SPECIES_NONE)
         gBattlescriptCurrInstr = cmd->jumpInstr;
-    else if (gBattleMons[gBattlerTarget].volatiles.semiInvulnerable == STATE_COMMANDER)
+    else if (gBattleMons[battler].volatiles.semiInvulnerable == STATE_COMMANDER)
         gBattlescriptCurrInstr = cmd->jumpInstr;
     else
         gBattlescriptCurrInstr = cmd->nextInstr;

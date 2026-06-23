@@ -3758,6 +3758,7 @@ static bool32 TryEjectButton(enum BattlerId battlerAtk, u32 ejectButtonBattler)
      || IsPursuitTargetSet()
      || gBattleMons[ejectButtonBattler].volatiles.semiInvulnerable == STATE_SKY_DROP_ATTACKER
      || gBattleMons[ejectButtonBattler].volatiles.semiInvulnerable == STATE_SKY_DROP_TARGET
+     || gBattleStruct->battlerState[ejectButtonBattler].commanderSpecies != SPECIES_NONE
      || !CanBattlerSwitch(ejectButtonBattler))
         return FALSE;
 
@@ -4070,6 +4071,7 @@ static inline bool32 TryEjectPack(enum BattlerId battlerAtk, enum BattlerId ejec
      || IsPursuitTargetSet()
      || gBattleMons[ejectPackBattler].volatiles.semiInvulnerable == STATE_SKY_DROP_ATTACKER
      || gBattleMons[ejectPackBattler].volatiles.semiInvulnerable == STATE_SKY_DROP_TARGET
+     || gBattleStruct->battlerState[ejectPackBattler].commanderSpecies != SPECIES_NONE
      || !CanBattlerSwitch(ejectPackBattler)
      || (GetMoveEffect(gCurrentMove) == EFFECT_PARTING_SHOT && CanBattlerSwitch(battlerAtk)))
         return FALSE;
@@ -4264,6 +4266,8 @@ static enum MoveEndResult MoveEndClearBits(struct BattleCalcValues *cv)
     gBattleStruct->toxicChainPriority = FALSE;
     gBattleStruct->flungItem = FLUNG_ITEM_NONE;
     gBattleStruct->blunderPolicy = FALSE;
+    gBattleScripting.animTurn = 0;
+    gBattleScripting.animTargetsHit = 0;
 
     if (gBattleStruct->pledgeState == PLEDGE_COMBO_ATTACK)
         gBattleStruct->pledgeState = PLEDGE_COMBO_NONE;
