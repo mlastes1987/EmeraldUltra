@@ -2,7 +2,9 @@
 
 Based on the [pokeemerald-expansion](https://github.com/rh-hideout/pokeemerald-expansion) by rh-hideout and others.
 
-Originally this project began as Emerald Ultra, which was more to prove to myself that I could make a QOL rom hack for Emerald through the expansion code base.  Over the past two year period working with this code base I've learned a lot about rom hacking, coding, and many other things and I've just scratched the surface compared to some other devs out here.  The code base has now been configured to also build Fire Red Ultra, a hack based on a port of pokeemerald-expansion features that was configured to build FireRed/LeafGreen from its own code base, and it worked well but there were also issues.  Hopefully now that it has been ported to this code base it will work better and as I'm also the beta tester as well as developer, that will take time.
+Originally this project began as Emerald Ultra, which was more to prove to myself that I could make a QOL rom hack for Emerald through the expansion code base.  Over the past two year period working with this code base I've learned a lot about rom hacking, coding, and many other things and I've just scratched the surface compared to some other devs out here.  The code base has now been configured to also build Fire Red Ultra, a hack based on a port of pokeemerald-expansion features that was configured to build FireRed/LeafGreen from its own code base, and it worked well but there were also issues.  Hopefully now that it has been ported to this code base it will work better and as I'm also the beta tester as well as developer, that will take time.  The previous Fire Red Ultra repo that was cloned from cawtds has been archived.
+
+As of 7/1/2026 this repo will no longer be taking in anymore changes from the main rh-hideout repo, any further changes will be done by myself.  This is to lighten the maintaining load for this particular project.
 
 # Features Currently Active
 
